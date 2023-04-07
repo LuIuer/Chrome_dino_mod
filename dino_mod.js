@@ -220,7 +220,7 @@ window.shaker = function() {
 // shoot laser!!
 b = Runner.instance_.clearCanvas;
 laserCount = 0;
-laserDeathCount = 20 + Math.round(50 * Math.random());
+laserDeathCount = 30 + Math.round(50 * Math.random());
 window.addEventListener("keydown", checkKeyPressed, false);
 function checkKeyPressed(l) { if (l.keyCode == "68" ) {drawline()}};
 function drawline() {
@@ -237,10 +237,12 @@ function drawline() {
     Runner.instance_.horizon.removeFirstObstacle();
         laserCount++;
     }
-    if (laserCount > laserDeathCount && laserDeathCount != 22){
-        laserCount = 0;
-        // laserDeathCount = 10 + Math.round(20 * Math.random());
-        Runner.instance_.gameOver();
+    if (laserCount > laserDeathCount){
+        if (laserDeathCount != 44){
+            laserCount = 0;
+            // laserDeathCount = 10 + Math.round(20 * Math.random());
+            Runner.instance_.gameOver();
+        }
     }
 }
 
